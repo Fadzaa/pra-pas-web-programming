@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\WorkerController;
 use App\Models\Table;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,7 @@ Route::get('student/detail/{student}', [StudentsController::class, 'show']);
 Route::get('teacher/all', [TeacherController::class, 'index']);
 Route::get('teacher/detail/{teacher}', [TeacherController::class, 'show']);
 
-
+Route::get('worker/all', [WorkerController::class, 'index']);
+Route::get('worker/detail/{worker}', [WorkerController::class, 'show']);
 
 
