@@ -9,6 +9,7 @@
       <th scope="col">NIS</th>
       <th scope="col">Name</th>
       <th scope="col">Class</th>
+      <th scope="col">Tanggal Lahir</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
       <td>{{$student["nis"]}}</td>
       <td>{{$student["nama"]}}</td>
       <td>{{$student["kelas"]}}</td>
+      <td>{{$student["tanggal_lahir"]}}</td>
       <td>
         <div>
           <a type="button" class="btn btn-primary" href="/student/detail/{{$student -> id}}">Detail</a>

@@ -8,7 +8,9 @@
     <tr>
       <th scope="col">ID Pekerja</th>
       <th scope="col">Name</th>
+      <th scope="col">Tanggal Lahir</th>
       <th scope="col">Jenis Pekerjaan</th>
+      <th scope="col">Shift</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -17,7 +19,10 @@
     <tr>
       <td>{{$worker["worker_id"]}}</td>
       <td>{{$worker["nama"]}}</td>
+       <td>{{$worker["tanggal_lahir"]}}</td>
       <td>{{$worker["jenis_pekerjaan"]}}</td>
+      <td>{{$worker["shift"]}}</td>
+     
       <td>
         <div>
           <a type="button" class="btn btn-primary" href="/worker/detail/{{$worker -> id}}">Detail</a>
