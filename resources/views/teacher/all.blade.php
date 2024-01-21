@@ -9,6 +9,7 @@
       <th scope="col">ID Guru</th>
       <th scope="col">Name</th>
       <th scope="col">Mapel Pengajar</th>
+      <th scope="col">Tanggal Lahir</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
       <td>{{$teacher["teacher_id"]}}</td>
       <td>{{$teacher["nama"]}}</td>
       <td>{{$teacher["mapel_pengajar"]}}</td>
+      <td>{{$teacher["tanggal_lahir"]}}</td>
       <td>
         <div>
           <a type="button" class="btn btn-primary" href="/teacher/detail/{{$teacher -> id}}">Detail</a>

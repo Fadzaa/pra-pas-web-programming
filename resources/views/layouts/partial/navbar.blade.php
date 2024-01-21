@@ -11,7 +11,10 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/teacher/all">Teacher</a>
-        </li>        
+        </li>     
+        <li class="nav-item">
+          <a class="nav-link" href="/worker/all">Worker</a>
+        </li>       
       </ul>
     </div>
   </div>
