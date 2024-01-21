@@ -23,13 +23,29 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('student/all', [StudentsController::class, 'index']);
-Route::get('student/detail/{student}', [StudentsController::class, 'show']);
+Route::group(['prefix' => "/student"], function () {
+    Route::get('/all', [StudentsController::class, 'index']);
+    Route::get('/detail/{student}', [StudentsController::class, 'show']);
+    Route::get('/create', [StudentsController::class, 'create']);
+    Route::post('/add', [StudentsController::class, 'store']);
+    Route::get('/edit/{student}', [StudentsController::class, 'edit']);
+    Route::put('/update/{student}', [StudentsController::class, 'update']);
+    Route::delete('/delete/{student}', [StudentsController::class, 'destroy']);
 
-Route::get('teacher/all', [TeacherController::class, 'index']);
-Route::get('teacher/detail/{teacher}', [TeacherController::class, 'show']);
+});
 
-Route::get('worker/all', [WorkerController::class, 'index']);
-Route::get('worker/detail/{worker}', [WorkerController::class, 'show']);
+Route::group(['prefix' => "/teacher"], function () {
+    Route::get('/all', [TeacherController::class, 'index']);
+    Route::get('/detail/{teacher}', [TeacherController::class, 'show']);
+  
+
+});
+
+Route::group(['prefix' => "/worker"], function () {
+    Route::get('/all', [WorkerController::class, 'index']);
+    Route::get('/detail/{worker}', [WorkerController::class, 'show']);
+});
+
+
 
 
