@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Kelas;
+use App\Models\Student;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,5 +20,20 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        Student::factory(50)->create();
+
+        Kelas::create([
+            'nama' => '10 PPLG 1',
+        ]);
+        Kelas::create([
+            'nama' => '10 PPLG 2',
+        ]);
+        Kelas::create([
+            'nama' => '11 PPLG 1',
+        ]);
+        Kelas::create([
+            'nama' => '11 PPLG 2',
+        ]);
     }
 }

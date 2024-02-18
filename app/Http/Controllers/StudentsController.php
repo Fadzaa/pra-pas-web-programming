@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Grade;
+use App\Models\Kelas;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -16,11 +18,11 @@ class StudentsController extends Controller
         ]);
     }
 
-    public function show(Student $student)
+    public function show($student)
     {
         return view('student.detail', [
             "title" => "Student Detail",
-            "student" => $student
+            "student" => Student::find($student)
         ]);
     }
 
@@ -29,7 +31,7 @@ class StudentsController extends Controller
         $request->validate([
             'nis' => 'required',
             'nama' => 'required',
-            'kelas' => 'required',
+            'kelas_id' => 'required',
             'tanggal_lahir' => 'required',
             'alamat' => 'required',
         ]);
@@ -40,13 +42,13 @@ class StudentsController extends Controller
     return redirect('/student/all');
     }
 
-    public function create()
-    {
-        return view('student.create', [
-            "title" => "Students",
-            "students" => Student::all()
-        ]);
-    }
+     public function create()
+{
+  return view('student.create', [
+    "title" => "create-student",
+    "kelas" => Kelas::all()
+  ]);
+}
 
     public function destroy(Student $student)
     {
@@ -60,32 +62,27 @@ class StudentsController extends Controller
     {
         return view('student.edit', [
             "title" => "Students",
-            "student" => $student
+            "student" => $student,
+                 "kelas" => Kelas::all()
         ]);
     }
 
     public function update(Request $request, Student $student)
     {
-        $request->validate([
+        $validateData = $request->validate([
             'nis' => 'required',
             'nama' => 'required',
-            'kelas' => 'required',
+            'kelas_id'      => 'required',
             'tanggal_lahir' => 'required',
             'alamat' => 'required',
         ]);
 
         Student::where('id', $student->id)
-            ->update([
-                'nis' => $request->nis,
-                'nama' => $request->nama,
-                'kelas' => $request->kelas,
-                'tanggal_lahir' => $request->tanggal_lahir,
-                'alamat' => $request->alamat,
-            ]);
+            ->update($validateData);
         Session::flash('success', 'Data Siswa Berhasil Diubah!');
 
         return redirect('/student/all');
     }
 
-    
+
 }

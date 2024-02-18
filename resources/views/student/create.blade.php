@@ -16,8 +16,13 @@
   </div>
 
   <div class="mb-3">
-    <label for="exampleInputClass" class="form-label">Class</label>
-    <input name="kelas" value="{{old('kelas')}}" type="text" class="form-control" id="exampleInputPassword1" placeholder="Class">
+    <label for="kelas" class="form-label">Class</label>
+    <select class="form-select" name="kelas_id" id="">
+                @foreach ($kelas as $Kelas)
+                    <option value="{{ $Kelas->id }}">{{ $Kelas->nama }}</option>
+                @endforeach 
+            </select>
+    {{-- <input name="kelas" value="{{old('kelas')}}" type="text" class="form-control" id="exampleInputPassword1" placeholder="Class"> --}}
   </div>
 
   <div class="mb-3">

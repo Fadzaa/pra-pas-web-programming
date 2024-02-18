@@ -32,7 +32,7 @@
     <tr>
       <td>{{$student["nis"]}}</td>
       <td>{{$student["nama"]}}</td>
-      <td>{{$student["kelas"]}}</td>
+      <td>{{$student->kelas->nama}}</td>
       <td>{{$student["tanggal_lahir"]}}</td>
       <td>
         <div style="display: flex; gap: 10px;">

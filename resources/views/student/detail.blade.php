@@ -1,11 +1,38 @@
 @extends('layouts.main')
 
 @section('container')
-    {{$student -> nis}} <br>
-    {{$student -> nama}} <br>
-    {{$student -> tanggal_lahir}} <br>
-    {{$student -> kelas}} <br>
-    {{$student -> alamat}} <br>
+    <h3>{{$title}}</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">No</th>
+            <th scope="col">Nis</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Tanggal Lahir</th>
+            <th scope="col">Kelas</th>
+            <th scope="col">Alamat</th>
+            <th scope="col">Action</th>
 
-    <a href="/student/all">Back</a>
+        </tr>
+        </thead>
+        <tbody>
+        @php
+            $no = 1
+        @endphp
+
+        <tr>
+            <td>{{$no++}}</td>
+            <td>{{$student->nis}}</td>
+            <td>{{$student->nama}}</td>
+            <td>{{$student->tanggal_lahir}}</td>
+            <td>{{$student->kelas->nama}}</td>
+            <td>{{$student->alamat}}</td>
+            <td>
+                <a href="/student/all" class="btn btn-primary">Kembali</a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+
 @endsection
